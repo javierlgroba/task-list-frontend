@@ -9,7 +9,7 @@ function Todo(props: { text: string; id: string }) {
   function removeHandler() {
     const axios = require('axios').default;
 
-    axios({ timeout: 1000, method: 'delete', url: '/task/remove/' + props.id, baseURL: 'http://localhost:8080' })
+    axios({ timeout: 1000, method: 'delete', url: '/task/remove/' + props.id, baseURL: process.env.REACT_APP_API_URL })
       .then(function (response: any) {
         if (response.status === 200) {
           console.log(response);

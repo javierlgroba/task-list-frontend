@@ -15,7 +15,7 @@ function TodoForm() {
     e.preventDefault();
     const axios = require('axios').default;
     axios({
-      timeout: 1000, method: 'post', url: '/task/add', baseURL: 'http://localhost:8080', params: {
+      timeout: 1000, method: 'post', url: '/task/add', baseURL: process.env.REACT_APP_API_URL, params: {
         text: text
       }
     })
