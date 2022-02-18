@@ -10,7 +10,7 @@ function Todos() {
 
   useEffect(() => {
     const axios = require('axios').default;
-    axios({ timeout: 1000, method: 'get', url: '/task/get', baseURL: 'http://localhost:8080' })
+    axios({ timeout: 1000, method: 'get', url: '/task/get', baseURL: process.env.REACT_APP_API_URL })
       .then(function (response: any) {
         if (response.status === 200) {
           let tmp: { id: string, text: string }[] = response.data
