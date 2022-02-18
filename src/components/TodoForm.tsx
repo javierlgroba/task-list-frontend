@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useAppDispatch } from "../store/hooks";
+import { addTodo } from "../store/reducers/todosSlice";
 import style from "./todoForm.module.scss";
 
 function TodoForm() {
+  const dispatch = useAppDispatch();
   const [text, setText] = useState("");
 
   function changeHandler(e: React.FormEvent<HTMLInputElement>) {
@@ -19,6 +22,7 @@ function TodoForm() {
       .then(function (response: any) {
         console.log(response);
         if (response.status === 201) {
+          dispatch(addTodo(response.data));
           setText("");
         }
       })
