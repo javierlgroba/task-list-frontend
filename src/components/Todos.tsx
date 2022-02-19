@@ -20,7 +20,7 @@ function Todos() {
       .catch(function (error: any) {
         console.log(error);
       })
-  }, []);
+  }, [dispatch]);
 
   const todoList = todos.map((todo) => (
     <Todo key={todo.id} text={todo.text} id={todo.id} />
